@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tinker Tech Referrals</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tinker Tech Referrals</h1>
+        
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" placeholder="e.g. Johnathan Mctavish">
+
+        <label for="workshop">Select Workshop</label>
+        <select id="workshop">
+            <option value="SD">Software Development</option>
+            <option value="AI">AIML</option>
+            <option value="MECH">Mechatronics</option>
+        </select>
+        
+        <button onclick="generateCode()">Generate Code</button>
+        
+        <div id="result-container">
+            <div>Your Referral Code:</div>
+            <div class="code-display" id="result"></div>
+        </div>
+    </div>
+
+    <script>
+        function generateCode() {
+            const rawName = document.getElementById("fullName").value.trim().toUpperCase();
+            const workshopCode = document.getElementById("workshop").value;
+            const constant = "75";
+
+            if (!rawName) { alert("Please enter a name."); return; }
+
+            const nameParts = rawName.split(/\s+/);
+            let firstNameCode = nameParts[0].substring(0, 4);
+            let lastNameCode = "";
+            
+            if (nameParts.length > 1) {
+                lastNameCode = "-" + nameParts[nameParts.length - 1].substring(0, 4);
+            }
+
+            document.getElementById("result").innerText = `${firstNameCode}${lastNameCode}-${workshopCode}-${constant}`;
+            document.getElementById("result-container").style.display = "block";
+        }
+    </script>
+</body>
+</html>
