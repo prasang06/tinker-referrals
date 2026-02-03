@@ -1,7 +1,122 @@
-body { font-family: sans-serif; text-align: center; padding: 40px; background-color: #f4f4f9; }
-.container { background: white; max-width: 400px; margin: auto; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-button { background-color: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; width: 100%; margin-top: 20px; }
-#result-container { margin-top: 20px; display: none; }
-.code-display { color: #28a745; font-size: 24px; font-weight: bold; margin-top: 10px; }
-input, select { width: 100%; padding: 10px; margin-top: 5px; box-sizing: border-box; }
-label { display: block; text-align: left; margin-top: 15px; font-weight: bold; }
+/* 1. Reset and Font */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    /* This creates the Dark Green -> Black spotlight effect */
+    background: radial-gradient(circle at 50% -20%, #1e4d2b, #000000 60%);
+    background-color: #050505;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 2. The Card Container (Dark Glass) */
+.container {
+    background: rgba(25, 25, 25, 0.9);
+    width: 90%;
+    max-width: 420px;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #333; /* Subtle border */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* 3. Typography */
+h1 {
+    font-weight: 800; /* Extra bold like the image */
+    font-size: 2rem;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+
+p {
+    color: #888;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+label {
+    display: block;
+    text-align: left;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #aaa;
+    margin-bottom: 8px;
+}
+
+/* 4. Inputs (Dark Fields) */
+input, select {
+    width: 100%;
+    padding: 15px;
+    background-color: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #ccff00; /* Neon Green Focus */
+    box-shadow: 0 0 10px rgba(204, 255, 0, 0.1);
+}
+
+/* 5. The "Tinkerers" Button */
+button {
+    background-color: #ccff00; /* The signature Neon Green */
+    color: black;
+    border: none;
+    padding: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 50px; /* Pill shape */
+    cursor: pointer;
+    width: 100%;
+    margin-top: 30px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(204, 255, 0, 0.3); /* Green Glow */
+}
+
+/* 6. The Result */
+#result-container {
+    margin-top: 30px;
+    padding: 20px;
+    background: #111;
+    border-radius: 12px;
+    border: 1px dashed #333;
+    display: none; /* Hidden by default */
+}
+
+.code-display {
+    color: #ccff00;
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: monospace;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    word-break: break-all;
+}
+
+.copy-hint {
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 8px;
+}
+
+/* Logo Sizing */
+.camp-logo {
+    max-width: 100px;
+    margin-bottom: 10px;
+}
