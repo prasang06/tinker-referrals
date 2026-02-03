@@ -32,7 +32,9 @@
         function generateCode() {
             const rawName = document.getElementById("fullName").value.trim().toUpperCase();
             const workshopCode = document.getElementById("workshop").value;
-            const constant = "75";
+            
+            // NEW: Generate a random number between 1000 and 9999
+            const randomNum = Math.floor(1000 + Math.random() * 9000);
 
             if (!rawName) { alert("Please enter a name."); return; }
 
@@ -44,8 +46,17 @@
                 lastNameCode = "-" + nameParts[nameParts.length - 1].substring(0, 4);
             }
 
-            document.getElementById("result").innerText = `${firstNameCode}${lastNameCode}-${workshopCode}-${constant}`;
+            // Updated line to use randomNum instead of constant
+            const finalCode = `${firstNameCode}${lastNameCode}-${workshopCode}-${randomNum}`;
+
+            document.getElementById("result").innerText = finalCode;
             document.getElementById("result-container").style.display = "block";
+            
+            // Optional: Click to Copy
+            document.getElementById("result").onclick = function() {
+                navigator.clipboard.writeText(finalCode);
+                alert("Copied: " + finalCode);
+            }
         }
     </script>
 </body>
